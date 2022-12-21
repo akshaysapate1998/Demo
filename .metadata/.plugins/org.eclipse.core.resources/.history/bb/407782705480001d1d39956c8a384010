@@ -1,0 +1,5 @@
+package com.viberntmind.StoreApp.dao;
+
+public class ProductRepository {
+
+}

@@ -1,0 +1,5 @@
+package com.viberntmind.StoreApp.domain;
+
+public class Product {
+
+}

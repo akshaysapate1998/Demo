@@ -1,0 +1,5 @@
+package com.viberntmind.StoreApp.service;
+
+public class ProductService {
+
+}
