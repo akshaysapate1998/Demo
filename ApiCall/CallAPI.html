@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Call API</title>
+    <script>
+        function getdata(){
+            callAPi();
+        }
+         async function callAPi(){
+            let result = await fetch('https://jsonplaceholder.typicode.com/users');
+            result=await result.json();
+            console.warn(result)
+            document.getElementById('userData').innerHTML=result.map((user)=>
+           `<tr>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.username}</td>c
+            <td>${user.website}</td>
+            <td>${user.phone}</td>
+            </tr>`     
+            ).join("");
+         }
+     
+    </script>
+</head>
+<body style="background-color: aqua;">
+    <h1>API call in javascript</h1>
+<table border="1" style="background-color: pink;">
+       <thead style="background-color: yellow;">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Website</th>
+        <th>Phone</th>
+       </thead>
+       <tbody id="userData">
+          
+       </tbody>
+</table>
+<button type="submit" onclick="getdata()"> click here</button>
+</body>
+</html>
