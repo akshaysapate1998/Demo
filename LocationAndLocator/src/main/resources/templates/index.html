@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tracking and Locator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    .container {
+    margin-top: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    padding: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+#result {
+    margin-top: 10px;
+    font-weight: bold;
+}
+    
+    </style>
+    <script>
+    function getLocation() {
+        var locationId = document.getElementById("locationId").value;
+        
+        fetch("/api/locations/" + locationId)
+            .then(response => response.json())
+            .then(data => {
+                var resultDiv = document.getElementById("result");
+                resultDiv.innerHTML = "Location: " + data.name + "<br>Latitude: " + data.latitude + "<br>Longitude: " + data.longitude;
+            })
+            .catch(error => console.error("Error:", error));
+    }
+
+    </script>
+</head>
+<body>
+    <h1>Tracking and Locator</h1>
+    <div class="container">
+        <label for="locationId">Location ID:</label>
+        <input type="text" id="locationId" placeholder="Enter location ID">
+        <button onclick="getLocation()">Get Location</button>
+        <div id="result"></div>
+    </div>
+</body>
+</html>
